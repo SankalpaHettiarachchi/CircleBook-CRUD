@@ -60,8 +60,10 @@ class ItemController extends Controller
         //
     }
 
-    public function destroy(Item $item)
+    public function destroy(Item $item,$id)
     {
-        //
+        $item = Item::findOrFail($id);
+        $item->delete();
+        return redirect(url('/Item'));
     }
 }
