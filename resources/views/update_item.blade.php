@@ -10,31 +10,33 @@
 <div class="card-body">
     <div class="col text-center">
         <div class="row">
-            <form class="form-class">
+            <form class="form-class" action="{{url('/Item/'.$item->id)}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PATCH')
                 <div class="input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text form-input" id="">Name</span>
+                      <span class="input-group-text form-input">Name</span>
                     </div>
-                    <input type="text" class="form-control form-input">
+                    <input name="name" type="text" class="form-control form-input" value="{{$item->name}}">
                 </div>
                 <br>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text form-input">Description</span>
                     </div>
-                    <textarea class="form-control form-input" aria-label="With textarea"></textarea>
+                    <textarea name="description" class="form-control form-input" aria-label="With textarea">{{$item->description}}</textarea>
                 </div>
                 <br>
                 <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input form-input" id="inputGroupFile01">
-                        <label class="custom-file-label form-input" for="inputGroupFile01">Choose file</label>
+                        <input name="image" type="file" class="custom-file-input form-input" id="fileInput" >
+                        <label class="custom-file-label form-input" for="fileInput"></label>
                     </div>
                 </div>
                 <br>
                 <div class="input-group">
-                    <button type="button" class="btn btn-success mr-2">Save</button>
-                    <button type="button" class="btn btn-info mr-2">Back</button>
+                    <button type="submit" class="btn btn-success mr-2">Update</button>
+                    <a href="{{url('/Item')}}" type="button" class="btn btn-info mr-2">Back</a>
                 </div>
             </form>
         </div>

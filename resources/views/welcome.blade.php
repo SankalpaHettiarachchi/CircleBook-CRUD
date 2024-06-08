@@ -22,8 +22,14 @@
                             <h5 class="card-title">{{$item->name}}</h5>
                             <br>
                             <div class="row">
-                                <button type="button" class="btn btn-info mr-2">See More</button>
-                                <button type="button" class="btn btn-success mr-2"><i class="bi bi-pencil-square"></i></button>
+                                <form action="{{url('/Item/'.$item->id)}}" method="GET">
+                                    @csrf
+                                    <button type="submit" class="btn btn-info mr-2">See More</button>
+                                </form>
+                                <form action="{{url('/Item/'.$item->id.'/edit')}}" method="GET">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success mr-2"><i class="bi bi-pencil-square"></i></button>
+                                </form>
                                 <form action="{{url('/Item/'.$item->id)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
