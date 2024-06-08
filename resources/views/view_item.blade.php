@@ -5,7 +5,7 @@
     INVENTORY
 </div>
 <div class="card-sub-header">
-    Update Item
+    Item details
 </div>
 <div class="card-body">
     <div class="col text-center">

@@ -28,10 +28,10 @@
                 </div>
                 <br>
                 <div class="input-group">
-                    <div class="custom-file">
-                        <input name="image" type="file" class="custom-file-input form-input" id="fileInput" >
-                        <label class="custom-file-label form-input" for="fileInput"></label>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text form-input">Image</span>
                     </div>
+                    <input name="image" class="form-control form-input" type="file" id="formFile" required>
                 </div>
                 <br>
                 <div class="input-group">

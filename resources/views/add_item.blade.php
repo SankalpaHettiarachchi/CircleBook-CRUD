@@ -19,21 +19,21 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text form-input" id="">Name</span>
                     </div>
-                    <input name="name" type="text" class="form-control form-input">
+                    <input name="name" type="text" class="form-control form-input" required>
                 </div>
                 <br>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text form-input">Description</span>
                     </div>
-                    <textarea name="description" class="form-control form-input" aria-label="With textarea"></textarea>
+                    <textarea name="description" class="form-control form-input" aria-label="With textarea" required></textarea>
                 </div>
                 <br>
                 <div class="input-group">
-                    <div class="custom-file">
-                        <input name="image" type="file" class="custom-file-input form-input" id="fileInput">
-                        <label class="custom-file-label form-input" for="fileInput">Choose file</label>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text form-input">Image</span>
                     </div>
+                    <input name="image" class="form-control form-input" type="file" required>
                 </div>
                 <br>
                 <div class="input-group">

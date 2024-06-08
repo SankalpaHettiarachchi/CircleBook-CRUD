@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
-use League\CommonMark\Extension\DescriptionList\Node\Description;
+use Illuminate\Support\Facades\Session;
 
 class ItemController extends Controller
 {
@@ -20,7 +19,6 @@ class ItemController extends Controller
     public function create()
     {
         return view("add_item");
-
     }
 
     public function store(Request $request)
@@ -41,6 +39,7 @@ class ItemController extends Controller
             'description' => $request->description,
             'image_path' => isset($image_path) ? $image_path : null,
         ]);
+        Session::flash('success', 'Item added successfully');
         return redirect(url('/Item'));
     }
 
@@ -76,14 +75,15 @@ class ItemController extends Controller
                 'description' =>  $validatedData['description'],
                 'image_path' => isset($image_path) ? $image_path : null,
             ]);
+        Session::flash('success', 'Item updated successfully');
         return redirect(url('/Item'));
-
     }
 
     public function destroy(Item $item,$id)
     {
         $item = Item::findOrFail($id);
         $item->delete();
+        Session::flash('error', 'Item deleted successfully');
         return redirect(url('/Item'));
     }
 }
